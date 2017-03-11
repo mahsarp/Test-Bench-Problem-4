@@ -1,0 +1,29 @@
+module top_module();
+   reg clk, in,out;
+    reg [2:0] s;
+    q7 instance1(clk, in, s,out);
+    
+    initial
+    begin
+    clk=1'b0;
+    in=1'b0;
+    s=3'b010;
+    #10
+     s=3'b110;
+    #10  
+    s=3'b010;
+    in=1'b1;
+     #10  //30 
+     s=3'b111;
+     in=1'b0;
+      #10//40 at the start of time 40
+      in=1'b1;
+       s=3'b000;
+       #30  
+        in=1'b0;
+    end    
+      always 
+      
+      #5 clk =!clk;
+         
+endmodule
